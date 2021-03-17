@@ -5,15 +5,11 @@ os.environ['TFHUB_MODEL_LOAD_FORMAT'] = 'COMPRESSED'
 
 import IPython.display as display
 import streamlit as st
-import matplotlib.pyplot as plt
-import matplotlib as mpl
-mpl.rcParams['figure.figsize'] = (12, 12)
-mpl.rcParams['axes.grid'] = False
+
 from PIL import Image
 import numpy as np
 import PIL.Image
-import time
-import functools
+
 
 content_path = ""
 style_path = ""
@@ -54,8 +50,8 @@ def tensor_to_image(tensor):
   return PIL.Image.fromarray(tensor)
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
-st.title('INTELLIGENZA ARTFICIALE ITALIA')
-st.text('Crea foto stupefacenti utilizzando la nostra Intelligenza Artificiale')
+st.title('INTELLIGENZA ARTIFICIALE ITALIA')
+st.text('Crea foto stupefacenti utilizzando la nostra \n Intelligenza Artificiale \nBy Intelligenzaartificialeitalia.net')
 
 st.sidebar.subheader('\n\n1) Selezionare la foto su cui applicare lo stile')
 selected_option = st.sidebar.file_uploader("Carica la tua immagine",type=["png","jpg","jpeg"],accept_multiple_files=False)
