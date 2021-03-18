@@ -9,12 +9,14 @@ import streamlit as st
 from PIL import Image
 import numpy as np
 import PIL.Image
+from PIL import ImageEnhance
 
 
 content_path = ""
 style_path = ""
 content_image=""
 style_image=""
+imgOk=os.path.dirname(__file__) +"/" + "white.jpg"
 MYDIR = os.path.dirname(__file__) +"/"
 
 def load_img(path_to_img):
@@ -79,16 +81,38 @@ if (selected_option2 is not None) :
 	img_array2 = np.array(image)
 	st.sidebar.image(image2)
 
-
-if(st.sidebar.button('Procedi con la Creazione della Nuova Foto')):
+if(st.sidebar.checkbox('Impostazioni immagine')):
+	st.sidebar.text('Utilizza le slide per modificare la \nfoto finale.\nDopo aver cambiato i valori di Default\nimpostati su 1,\npremi il pulsante per ricreare la foto')
+	luminosita = st.sidebar.slider('Seleziona la Luminosità', 0.0, 2.0, 1.0,0.01, format="%.2f")
+	contrasto = st.sidebar.slider('Seleziona il Contrasto', 0.0, 2.0, 1.0,0.01, format="%.2f")
+	nitidezza = st.sidebar.slider('Seleziona la Nitedezza',  0.0, 2.0, 1.0,0.01, format="%.2f")
+	colore = st.sidebar.slider('Seleziona il bilanciamento dei colori',  0.0, 2.0, 1.0,0.01, format="%.2f")
+else:
+	luminosita =1
+	contrasto=1
+	nitidezza=1
+	colore=1
+viewImg= st.image(imgOk)
+if(st.sidebar.button('\n\nProcedi con la Creazione della Nuova Foto')):
    stato = st.info("Attendi il caricamento, potrebbero volerci fino a 2 minuti, grazie")
    import tensorflow_hub as hub
    hub_model = hub.load('https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2')
    stato.info("Ci siamo quasi...")
    stylized_image = hub_model(tf.constant(content_image),       tf.constant(style_image))[0]
-   st.image(tensor_to_image(stylized_image))
-   stato.success("Completato...")
+   imgOk = tensor_to_image(stylized_image)
+   enhancer = ImageEnhance.Color(imgOk)
+   imgOk = enhancer.enhance(colore)
+   enhancer = ImageEnhance.Brightness(imgOk)
+   imgOk = enhancer.enhance(luminosita)
+   enhancer = ImageEnhance.Contrast(imgOk)
+   imgOk = enhancer.enhance(contrasto)
+   enhancer = ImageEnhance.Sharpness(imgOk)
+   imgOk = enhancer.enhance(nitidezza)
+   viewImg.image(imgOk)
+   #viewImg = st.image(tensor_to_image(stylized_image))
+   stato.success("Completato... Usa il tasto destro del mouse per salvarla")
    os.remove(style_path)
    os.remove(content_path)
    
+
    
