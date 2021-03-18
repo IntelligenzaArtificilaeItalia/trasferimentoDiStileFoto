@@ -19,6 +19,7 @@ style_image=""
 imgOk=os.path.dirname(__file__) +"/" + "white.jpg"
 MYDIR = os.path.dirname(__file__) +"/"
 
+@st.cache
 def load_img(path_to_img):
   max_dim = 512
   img = tf.io.read_file(path_to_img)
@@ -35,14 +36,7 @@ def load_img(path_to_img):
   img = img[tf.newaxis, :]
   return img
   
-def imshow(image, title=None):
-  if len(image.shape) > 3:
-    image = tf.squeeze(image, axis=0)
-
-  plt.imshow(image)
-  if title:
-    plt.title(title)
-    
+@st.cache    
 def tensor_to_image(tensor):
   tensor = tensor*255
   tensor = np.array(tensor, dtype=np.uint8)
@@ -83,17 +77,23 @@ if (selected_option2 is not None) :
 
 if(st.sidebar.checkbox('Impostazioni immagine')):
 	st.sidebar.text('Utilizza le slide per modificare la \nfoto finale.\nDopo aver cambiato i valori di Default\nimpostati su 1,\npremi il pulsante per ricreare la foto')
-	luminosita = st.sidebar.slider('Seleziona la Luminosità', 0.0, 2.0, 1.0,0.01, format="%.2f")
-	contrasto = st.sidebar.slider('Seleziona il Contrasto', 0.0, 2.0, 1.0,0.01, format="%.2f")
-	nitidezza = st.sidebar.slider('Seleziona la Nitedezza',  0.0, 2.0, 1.0,0.01, format="%.2f")
-	colore = st.sidebar.slider('Seleziona il bilanciamento dei colori',  0.0, 2.0, 1.0,0.01, format="%.2f")
+	luminosita = st.sidebar.slider('Seleziona la Luminosità', 0.3, 1.7, 1.0,0.01, format="%.2f")
+	contrasto = st.sidebar.slider('Seleziona il Contrasto', 0.3, 1.7, 1.0,0.01, format="%.2f")
+	nitidezza = st.sidebar.slider('Seleziona la Nitedezza',  0.3, 1.7, 1.0,0.01, format="%.2f")
+	colore = st.sidebar.slider('Seleziona il bilanciamento dei colori',  0.3, 1.7, 1.0,0.01, format="%.2f")
 else:
 	luminosita =1
 	contrasto=1
 	nitidezza=1
 	colore=1
+
 viewImg= st.image(imgOk)
-if(st.sidebar.button('\n\nProcedi con la Creazione della Nuova Foto')):
+
+st.sidebar.subheader('\n\n')
+
+c= False
+b = st.sidebar.checkbox('Procedi con la Creazione della Nuova Foto')
+if(b):
    stato = st.info("Attendi il caricamento, potrebbero volerci fino a 2 minuti, grazie")
    import tensorflow_hub as hub
    hub_model = hub.load('https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2')
@@ -108,11 +108,7 @@ if(st.sidebar.button('\n\nProcedi con la Creazione della Nuova Foto')):
    imgOk = enhancer.enhance(contrasto)
    enhancer = ImageEnhance.Sharpness(imgOk)
    imgOk = enhancer.enhance(nitidezza)
-   viewImg.image(imgOk)
-   #viewImg = st.image(tensor_to_image(stylized_image))
    stato.success("Completato... Usa il tasto destro del mouse per salvarla")
+   viewImg.image(imgOk)
    os.remove(style_path)
    os.remove(content_path)
-   
-
-   
