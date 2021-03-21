@@ -46,8 +46,8 @@ def tensor_to_image(tensor):
   return PIL.Image.fromarray(tensor)
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
-st.title('INTELLIGENZA ARTIFICIALE ITALIA')
-st.text('Crea foto stupefacenti utilizzando la nostra \n Intelligenza Artificiale \nBy Intelligenzaartificialeitalia.net')
+st.markdown("<h1 style='text-align: center; background-color: black;'><bold style='color:green;'>INTELLIGENZA<bold style='color:white;'>ARTIFICIALE<bold style='color:red;'>ITALIA</bold></bold></bold></h1>", unsafe_allow_html=True)
+st.subheader('Crea foto stupefacenti con la nostra Intelligenza Artificiale !')
 
 st.sidebar.subheader('\n\n1) Selezionare la foto su cui applicare lo stile')
 selected_option = st.sidebar.file_uploader("Carica la tua immagine",type=["png","jpg","jpeg"],accept_multiple_files=False)
@@ -108,7 +108,23 @@ if(b):
    imgOk = enhancer.enhance(contrasto)
    enhancer = ImageEnhance.Sharpness(imgOk)
    imgOk = enhancer.enhance(nitidezza)
-   stato.success("Completato... Usa il tasto destro del mouse per salvarla")
+   stato.success("Usa il tasto destro del mouse o tieni premuto sull' Immagine per salvarla")
    viewImg.image(imgOk)
+   st.balloons()
    os.remove(style_path)
    os.remove(content_path)
+   st.markdown('<bold> Scarica la foto e condividala sui tuoi social network per supportarci </bold>\
+   <ul> \
+  <li><a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fintelligenzaartificialeitalia.net%2F" target="blank" rel="noopener noreferrer"><img src="facebook-icon.png" alt="Share Page on Facebook" /></a></li> \
+  <li><a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fintelligenzaartificialeitalia.net%2F&text=Blog%2C+Forum%2C+Progetti%2C+e+Servizi+Gratuiti+completamente+dedicati+all%27+Intelligenza+Artificiale." target="blank" rel="noopener noreferrer"><img src="twitter-icon.png" alt="Share Page on Twitter" /></a></li> \
+  <li><a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fwww.intelligenzaartificialeitalia.net%2F&title=IntelligenzaArtificialeItalia=Blog%2C+Forum%2C+Progetti%2C+e+Servizi+Gratuiti+completamente+dedicati+all%27+Intelligenza+Artificiale.&source=IntelligenzaArtificialeItalia" target="blank" rel="noopener noreferrer"><img src="linkedin-icon.png" alt="Share Page on LinkedIn" /></a></li>\
+</ul>', unsafe_allow_html=True)
+   
+st.text("")
+st.text("")
+st.text("")
+st.text("")
+st.write("Proprietà intellettuale di [Intelligenza Artificiale Italia © ](https://intelligenzaartificialeitalia.net)")
+st.write("Hai un idea e vuoi realizzare un Applicazione Web Intelligente? contatta il nostro [Team di sviluppatori © ](mailto:python.ai.solution@gmail.com)")
+   
+
