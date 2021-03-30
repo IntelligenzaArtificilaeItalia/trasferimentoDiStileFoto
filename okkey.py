@@ -46,7 +46,7 @@ def tensor_to_image(tensor):
   return PIL.Image.fromarray(tensor)
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
-st.markdown("<h1 style='text-align: center; background-color: black;'><bold style='color:green;'>INTELLIGENZA<bold style='color:white;'>ARTIFICIALE<bold style='color:red;'>ITALIA</bold></bold></bold></h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; background-color: black;font-size:16px;'><bold style='color:green;'>INTELLIGENZA<bold style='color:white;'>ARTIFICIALE<bold style='color:red;'>ITALIA</bold></bold></bold></h1>", unsafe_allow_html=True)
 st.subheader('Crea foto stupefacenti con la nostra Intelligenza Artificiale !')
 
 st.sidebar.subheader('\n\n1) Selezionare la foto su cui applicare lo stile')
@@ -113,7 +113,7 @@ if(b):
    st.balloons()
    os.remove(style_path)
    os.remove(content_path)
-   st.markdown('<bold> Scarica la foto e condividala sui tuoi social network per supportarci </bold>\
+   st.markdown('<bold> Scarica la foto e condividila sui tuoi social network per supportarci </bold>\
    <ul> \
   <li><a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fintelligenzaartificialeitalia.net%2F" target="blank" rel="noopener noreferrer">Condividi su Facebook</a></li> \
   <li><a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fintelligenzaartificialeitalia.net%2F&text=Blog%2C+Forum%2C+Progetti%2C+e+Servizi+Gratuiti+completamente+dedicati+all%27+Intelligenza+Artificiale." target="blank" rel="noopener noreferrer">Condividi su Twitter</a></li> \
