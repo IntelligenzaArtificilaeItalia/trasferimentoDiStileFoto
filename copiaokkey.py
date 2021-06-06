@@ -112,18 +112,18 @@ if(b):
 	   imgOk = enhancer.enhance(contrasto)
 	   enhancer = ImageEnhance.Sharpness(imgOk)
 	   imgOk = enhancer.enhance(nitidezza)
-
+	   viewImg.image(imgOk)
 	   PhotoDef = imgOk
 	   watermark = os.path.dirname(__file__) +"/" + "watermark2.png"
 	   watermark = Image.open(watermark)
+	   PhotoDef = Image.open(imgOk)
 	   (PhotoW, PhotoH) = PhotoDef.size
 	   (WaterW, WaterH) = watermark.size
-	   imgOk = PhotoDef
 	   for n in range(int(PhotoH * 2 / WaterH)):
 
 		   for i in range(int(PhotoW * 2 / WaterW + 1)):
 
-			   imgOk = imgOk.paste(watermark, ((-100 + i * WaterW) + n * -220, n * WaterH), watermark)
+			   PhotoDef = PhotoDef.paste(watermark, ((-100 + i * WaterW) + n * -220, n * WaterH), watermark)
 
 			   loopfind += 1
 
@@ -135,7 +135,7 @@ if(b):
 
 
 	   stato.success("Usa il tasto destro del mouse o tieni premuto sull' Immagine per salvarla")
-	   viewImg.image(imgOk)
+	   viewImg.image(PhotoDef)
 	   st.balloons()
 	   os.remove(style_path)
 	   os.remove(content_path)
