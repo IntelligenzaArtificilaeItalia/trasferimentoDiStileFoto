@@ -113,16 +113,10 @@ if(b):
 	   imgOk = enhancer.enhance(nitidezza)
 
 	   PhotoDef = imgOk
-	   RotatedWatermark = WatermarkDef
+	   watermark = os.path.dirname(__file__) +"/" + "watermark2.png"
 
-	   photo = PhotoDef
-	   PREwatermark = Image.open(WatermarkDef).convert("RGBA")
-
-	   PREwatermark.rotate(45).save(RotatedWatermark)
-	   watermark = Image.open(RotatedWatermark).convert("RGBA")
-
-	   (PhotoW, PhotoH) = Image.open(PhotoDef).size
-	   (WaterW, WaterH) = Image.open(RotatedWatermark).size
+	   (PhotoW, PhotoH) = PhotoDef.size
+	   (WaterW, WaterH) = watermark.size
 	   imgOk = PhotoDef
 	   for n in range(PhotoH * 2 / WaterH):
 
