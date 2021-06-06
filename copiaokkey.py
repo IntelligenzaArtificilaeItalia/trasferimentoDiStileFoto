@@ -114,7 +114,7 @@ if(b):
 
 	   PhotoDef = imgOk
 	   watermark = os.path.dirname(__file__) +"/" + "watermark2.png"
-
+	   watermark = Image.open(watermark)
 	   (PhotoW, PhotoH) = PhotoDef.size
 	   (WaterW, WaterH) = watermark.size
 	   imgOk = PhotoDef
