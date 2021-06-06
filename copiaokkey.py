@@ -72,7 +72,7 @@ if (selected_option2 is not None) :
 	style_path = os.path.dirname(__file__) +"/" + selected_option2 + ".jpg"
 	style_image = load_img(style_path)
 	img_array2 = np.array(image)
-	st.image(style_image)
+	st.image(img_array2)
 
 if(st.sidebar.checkbox('Impostazioni immagine')):
 	st.sidebar.text('Utilizza le slide per modificare la \nfoto finale.\nDopo aver cambiato i valori di Default\nimpostati su 1,\npremi il pulsante per ricreare la foto')
