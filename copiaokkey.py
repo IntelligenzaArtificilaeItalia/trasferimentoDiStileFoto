@@ -18,7 +18,7 @@ style_path = ""
 content_image=""
 style_image=""
 imgOk=os.path.dirname(__file__) +"/" + "white.jpg"
-WatermarkDef = os.path.dirname(__file__) +"/" + "water.png"
+WatermarkDef = os.path.dirname(__file__) +"/" + "watermark2.png"
 MYDIR = os.path.dirname(__file__) +"/"
 
 @st.cache
