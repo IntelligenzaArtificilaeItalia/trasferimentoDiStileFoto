@@ -19,7 +19,7 @@ content_image=""
 style_image=""
 loopfind = 0
 imgOk=os.path.dirname(__file__) +"/" + "white.jpg"
-WatermarkDef = os.path.dirname(__file__) +"/" + "watermark2.png"
+WatermarkDef = os.path.dirname(__file__) +"/" + "rotated_watermark.png"
 MYDIR = os.path.dirname(__file__) +"/"
 
 @st.cache
