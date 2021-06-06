@@ -125,10 +125,6 @@ if(b):
 
 			   loopfind += 1
 
-			   if loopfind == 40:
-				   
-
-
 	   stato.success("Usa il tasto destro del mouse o tieni premuto sull' Immagine per salvarla")
 	   viewImg.image(imgOk)
 	   st.balloons()
