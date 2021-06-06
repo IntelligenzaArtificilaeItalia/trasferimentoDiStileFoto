@@ -75,11 +75,11 @@ if (selected_option2 is not None) :
 	st.image(img_array2)
 
 if(st.checkbox('Impostazioni immagine')):
-	st.sidebar.text('Utilizza le slide per modificare la \nfoto finale.\nDopo aver cambiato i valori di Default\nimpostati su 1,\npremi il pulsante per ricreare la foto')
-	luminosita = st.sidebar.slider('Seleziona la Luminosità', 0.3, 1.7, 1.0,0.01, format="%.2f")
-	contrasto = st.sidebar.slider('Seleziona il Contrasto', 0.3, 1.7, 1.0,0.01, format="%.2f")
-	nitidezza = st.sidebar.slider('Seleziona la Nitedezza',  0.3, 1.7, 1.0,0.01, format="%.2f")
-	colore = st.sidebar.slider('Seleziona il bilanciamento dei colori',  0.3, 1.7, 1.0,0.01, format="%.2f")
+	st.text('Utilizza le slide per modificare la \nfoto finale.\nDopo aver cambiato i valori di Default\nimpostati su 1,\npremi il pulsante per ricreare la foto')
+	luminosita = st.slider('Seleziona la Luminosità', 0.3, 1.7, 1.0,0.01, format="%.2f")
+	contrasto = st.slider('Seleziona il Contrasto', 0.3, 1.7, 1.0,0.01, format="%.2f")
+	nitidezza = st.slider('Seleziona la Nitedezza',  0.3, 1.7, 1.0,0.01, format="%.2f")
+	colore = st.slider('Seleziona il bilanciamento dei colori',  0.3, 1.7, 1.0,0.01, format="%.2f")
 else:
 	luminosita =1
 	contrasto=1
