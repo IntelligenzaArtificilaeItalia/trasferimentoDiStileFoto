@@ -92,33 +92,36 @@ viewImg= st.image(imgOk)
 st.sidebar.subheader('\n\n')
 
 c= False
-b = st.sidebar.checkbox('Procedi con la Creazione della Nuova Foto')
+b = st.sidebar.button('Procedi con la Creazione della Nuova Foto')
 if(b):
    stato = st.info("Attendi il caricamento, potrebbero volerci fino a 2 minuti, grazie")
    import tensorflow_hub as hub
    hub_model = hub.load('https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2')
    stato.info("Ci siamo quasi...")
-   stylized_image = hub_model(tf.constant(content_image),       tf.constant(style_image))[0]
-   imgOk = tensor_to_image(stylized_image)
-   enhancer = ImageEnhance.Color(imgOk)
-   imgOk = enhancer.enhance(colore)
-   enhancer = ImageEnhance.Brightness(imgOk)
-   imgOk = enhancer.enhance(luminosita)
-   enhancer = ImageEnhance.Contrast(imgOk)
-   imgOk = enhancer.enhance(contrasto)
-   enhancer = ImageEnhance.Sharpness(imgOk)
-   imgOk = enhancer.enhance(nitidezza)
-   stato.success("Usa il tasto destro del mouse o tieni premuto sull' Immagine per salvarla")
-   viewImg.image(imgOk)
-   st.balloons()
-   os.remove(style_path)
-   os.remove(content_path)
-   st.markdown('<bold> Scarica la foto e condividila sui tuoi social network per supportarci </bold>\
-   <ul> \
-  <li><a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fintelligenzaartificialeitalia.net%2F" target="blank" rel="noopener noreferrer">Condividi su Facebook</a></li> \
-  <li><a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fintelligenzaartificialeitalia.net%2F&text=Blog%2C+Forum%2C+Progetti%2C+e+Servizi+Gratuiti+completamente+dedicati+all%27+Intelligenza+Artificiale." target="blank" rel="noopener noreferrer">Condividi su Twitter</a></li> \
-  <li><a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fwww.intelligenzaartificialeitalia.net%2F&title=IntelligenzaArtificialeItalia=Blog%2C+Forum%2C+Progetti%2C+e+Servizi+Gratuiti+completamente+dedicati+all%27+Intelligenza+Artificiale.&source=IntelligenzaArtificialeItalia" target="blank" rel="noopener noreferrer">Condividi su Linkedin</a></li>\
-</ul>', unsafe_allow_html=True)
+   try:
+	   stylized_image = hub_model(tf.constant(content_image),       tf.constant(style_image))[0]
+	   imgOk = tensor_to_image(stylized_image)
+	   enhancer = ImageEnhance.Color(imgOk)
+	   imgOk = enhancer.enhance(colore)
+	   enhancer = ImageEnhance.Brightness(imgOk)
+	   imgOk = enhancer.enhance(luminosita)
+	   enhancer = ImageEnhance.Contrast(imgOk)
+	   imgOk = enhancer.enhance(contrasto)
+	   enhancer = ImageEnhance.Sharpness(imgOk)
+	   imgOk = enhancer.enhance(nitidezza)
+	   stato.success("Usa il tasto destro del mouse o tieni premuto sull' Immagine per salvarla")
+	   viewImg.image(imgOk)
+	   st.balloons()
+	   os.remove(style_path)
+	   os.remove(content_path)
+	   st.markdown('<bold> Scarica la foto e condividila sui tuoi social network per supportarci </bold>\
+	   <ul> \
+	  <li><a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fintelligenzaartificialeitalia.net%2F" target="blank" rel="noopener noreferrer">Condividi su Facebook</a></li> \
+	  <li><a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fintelligenzaartificialeitalia.net%2F&text=Blog%2C+Forum%2C+Progetti%2C+e+Servizi+Gratuiti+completamente+dedicati+all%27+Intelligenza+Artificiale." target="blank" rel="noopener noreferrer">Condividi su Twitter</a></li> \
+	  <li><a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fwww.intelligenzaartificialeitalia.net%2F&title=IntelligenzaArtificialeItalia=Blog%2C+Forum%2C+Progetti%2C+e+Servizi+Gratuiti+completamente+dedicati+all%27+Intelligenza+Artificiale.&source=IntelligenzaArtificialeItalia" target="blank" rel="noopener noreferrer">Condividi su Linkedin</a></li>\
+	</ul>', unsafe_allow_html=True)
+   except:
+	stato.error("C'è stato un Errore riprova")
    
 st.text("")
 st.text("")
