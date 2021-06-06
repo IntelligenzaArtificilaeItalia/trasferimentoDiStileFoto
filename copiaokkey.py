@@ -70,7 +70,7 @@ selected_option2 = st.selectbox("Scegli lo stile di un Pittore famoso che vuoi a
 if (selected_option2 is not None) :		
 	st.write("Foto caricata con successo...")
 	style_path = os.path.dirname(__file__) +"/" + selected_option2 + ".jpg"
-	style_image = Image.open(style_path)
+	style_image = load_img(style_path)
 	img_array2 = np.array(image)
 	st.image(style_image)
 
