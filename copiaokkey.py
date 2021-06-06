@@ -71,7 +71,7 @@ if (selected_option2 is not None) :
 	st.write("Foto caricata con successo...")
 	style_path = os.path.dirname(__file__) +"/" + selected_option2 + ".jpg"
 	style_image = load_img(style_path)
-	img_array2 = np.array(image)
+	img_array2 = np.array(style_image)
 	st.image(img_array2)
 
 if(st.sidebar.checkbox('Impostazioni immagine')):
