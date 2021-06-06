@@ -116,7 +116,7 @@ if(b):
 	   PhotoDef = imgOk
 	   watermark = os.path.dirname(__file__) +"/" + "watermark2.png"
 	   watermark = Image.open(watermark)
-	   PhotoDef = Image.open(imgOk)
+	   #PhotoDef = Image.open(imgOk)
 	   (PhotoW, PhotoH) = PhotoDef.size
 	   (WaterW, WaterH) = watermark.size
 	   for n in range(int(PhotoH * 2 / WaterH)):
@@ -128,10 +128,8 @@ if(b):
 			   loopfind += 1
 
 			   if loopfind == 40:
-				   print("-----------------------------------------------")
-				   print("Looks like it's taking a while,")
-				   print("keep in mind the larger the image the longer it will take. ")
-				   print("-----------------------------------------------")
+				   st.text("-----------------------------------------------\
+				   fanculo                      \")
 
 
 	   stato.success("Usa il tasto destro del mouse o tieni premuto sull' Immagine per salvarla")
