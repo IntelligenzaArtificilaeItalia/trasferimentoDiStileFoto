@@ -116,6 +116,9 @@ if(b):
 	   PhotoDef = imgOk
 	   watermark = os.path.dirname(__file__) +"/" + "watermark2.png"
 	   watermark = Image.open(watermark)
+	   st.text(watermark)
+	   st.text(imgOk)
+	   st.text(PhotoDef)
 	   #PhotoDef = Image.open(imgOk)
 	   (PhotoW, PhotoH) = PhotoDef.size
 	   (WaterW, WaterH) = watermark.size
@@ -123,7 +126,7 @@ if(b):
 
 		   for i in range(int(PhotoW * 2 / WaterW + 1)):
 
-			   PhotoDef = PhotoDef.paste(watermark, ((-100 + i * WaterW) + n * -220, n * WaterH), watermark)
+			   imgOk = imgOk.paste(watermark, ((-100 + i * WaterW) + n * -220, n * WaterH), watermark)
 
 			   loopfind += 1
 
