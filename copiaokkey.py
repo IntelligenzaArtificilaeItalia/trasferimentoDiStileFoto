@@ -118,9 +118,9 @@ if(b):
 	   (PhotoW, PhotoH) = PhotoDef.size
 	   (WaterW, WaterH) = watermark.size
 	   imgOk = PhotoDef
-	   for n in range(PhotoH * 2 / WaterH):
+	   for n in range(int(PhotoH * 2 / WaterH)):
 
-		   for i in range(PhotoW * 2 / WaterW + 1):
+		   for i in range(int(PhotoW * 2 / WaterW + 1)):
 
 			   imgOk = photo.paste(watermark, ((-100 + i * WaterW) + n * -220, n * WaterH), watermark)
 
