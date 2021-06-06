@@ -19,7 +19,6 @@ content_image=""
 style_image=""
 loopfind = 0
 imgOk=os.path.dirname(__file__) +"/" + "white.jpg"
-WatermarkDef = os.path.dirname(__file__) +"/" + "rotated_watermark.png"
 MYDIR = os.path.dirname(__file__) +"/"
 
 @st.cache
@@ -114,7 +113,7 @@ if(b):
 	   imgOk = enhancer.enhance(nitidezza)
 	   viewImg.image(imgOk)
 	   PhotoDef = imgOk
-	   watermark = os.path.dirname(__file__) +"/" + "watermark2.png"
+	   watermark = os.path.dirname(__file__) +"/" + "rotated_watermark.png"
 	   watermark = Image.open(watermark)
 	   st.text(watermark)
 	   st.text(imgOk)
