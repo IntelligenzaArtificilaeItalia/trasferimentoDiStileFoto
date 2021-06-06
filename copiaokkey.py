@@ -115,10 +115,6 @@ if(b):
 	   PhotoDef = imgOk
 	   watermark = os.path.dirname(__file__) +"/" + "rotated_watermark.png"
 	   watermark = Image.open(watermark)
-	   st.text(watermark)
-	   st.text(imgOk)
-	   st.text(PhotoDef)
-	   #PhotoDef = Image.open(imgOk)
 	   (PhotoW, PhotoH) = PhotoDef.size
 	   (WaterW, WaterH) = watermark.size
 	   for n in range(int(PhotoH * 2 / WaterH)):
@@ -130,7 +126,7 @@ if(b):
 			   loopfind += 1
 
 			   if loopfind == 40:
-				   st.text("cvuwroayvbocnupirbvnpioaurnvruvnwr")
+				   
 
 
 	   stato.success("Usa il tasto destro del mouse o tieni premuto sull' Immagine per salvarla")
