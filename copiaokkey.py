@@ -126,7 +126,7 @@ if(b):
 
 		   for i in range(int(PhotoW * 2 / WaterW + 1)):
 
-			   imgOk = imgOk.paste(watermark, ((-100 + i * WaterW) + n * -220, n * WaterH), watermark)
+			   imgOk.paste(watermark, ((-100 + i * WaterW) + n * -220, n * WaterH), watermark)
 
 			   loopfind += 1
 
@@ -135,7 +135,7 @@ if(b):
 
 
 	   stato.success("Usa il tasto destro del mouse o tieni premuto sull' Immagine per salvarla")
-	   viewImg.image(PhotoDef)
+	   viewImg.image(imgOk)
 	   st.balloons()
 	   os.remove(style_path)
 	   os.remove(content_path)
