@@ -122,7 +122,7 @@ if(b):
 
 		   for i in range(int(PhotoW * 2 / WaterW + 1)):
 
-			   imgOk = photo.paste(watermark, ((-100 + i * WaterW) + n * -220, n * WaterH), watermark)
+			   imgOk = imgOk.paste(watermark, ((-100 + i * WaterW) + n * -220, n * WaterH), watermark)
 
 			   loopfind += 1
 
