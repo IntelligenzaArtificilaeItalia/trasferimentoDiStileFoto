@@ -128,8 +128,7 @@ if(b):
 			   loopfind += 1
 
 			   if loopfind == 40:
-				   st.text("-----------------------------------------------\
-				   fanculo                      \")
+				   st.text("cvuwroayvbocnupirbvnpioaurnvruvnwr")
 
 
 	   stato.success("Usa il tasto destro del mouse o tieni premuto sull' Immagine per salvarla")
