@@ -49,33 +49,30 @@ def tensor_to_image(tensor):
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 st.markdown("<h1 style='text-align: center; background-color: black;font-size:16px;'><bold style='color:green;'>INTELLIGENZA<bold style='color:white;'>ARTIFICIALE<bold style='color:red;'>ITALIA</bold></bold></bold></h1>", unsafe_allow_html=True)
-st.subheader('Crea foto stupefacenti con la nostra Intelligenza Artificiale !')
+st.subheader('Usa la nostra Intelligenza Artificiale demo per toccare con mano di cosa può essere capace la nostra tecnologia !')
 
-st.sidebar.subheader('\n\n1) Selezionare la foto su cui applicare lo stile')
-selected_option = st.sidebar.file_uploader("Carica la tua immagine",type=["png","jpg","jpeg"],accept_multiple_files=False)
+st.subheader('\n\n1) Selezionare la foto su cui applicare lo stile')
+selected_option = st.file_uploader("Carica la tua immagine",type=["png","jpg","jpeg"],accept_multiple_files=False)
 
 if (selected_option is not None) :
-	st.sidebar.write("Foto caricata con successo...")
+	st.write("Foto caricata con successo...")
 	with open(os.path.join(MYDIR,selected_option.name),"wb") as f:
 		f.write(selected_option.getbuffer())
 	content_path = MYDIR + selected_option.name
 	content_image = load_img(content_path)
 	image = Image.open(selected_option)
 	img_array = np.array(image)
-	st.sidebar.image(image)
+	st.image(image)
 
-st.sidebar.subheader('\n\n2) Selezionare la foto da cui copiare lo stile')
-selected_option2 = st.sidebar.file_uploader("Carica la seconda immagine",type=["png","jpg","jpeg"],accept_multiple_files=False)
+st.subheader('\n\n2) Selezionare la foto da cui copiare lo stile')
+selected_option2 = st.selectbox("Scegli lo stile di un Pittore famoso che vuoi applicare alla tua foto",('Van Gogh', 'Escher', 'Joan Mirò'))
 
-if (selected_option2 is not None) :
-	st.sidebar.write("Foto caricata con successo...")
-	with open(os.path.join(MYDIR,selected_option2.name),"wb") as f:
-		f.write(selected_option2.getbuffer())
-	style_path = MYDIR + selected_option2.name
-	style_image = load_img(style_path)
-	image2 = Image.open(selected_option2)
+if (selected_option2 is not None) :		
+	st.write("Foto caricata con successo...")
+	style_path = os.path.dirname(__file__) +"/" + selected_option2 + ".jpg"
+	style_image = Image.open(style_path)
 	img_array2 = np.array(image)
-	st.sidebar.image(image2)
+	st.image(style_image)
 
 if(st.sidebar.checkbox('Impostazioni immagine')):
 	st.sidebar.text('Utilizza le slide per modificare la \nfoto finale.\nDopo aver cambiato i valori di Default\nimpostati su 1,\npremi il pulsante per ricreare la foto')
