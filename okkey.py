@@ -121,7 +121,7 @@ if(b):
 	  <li><a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fwww.intelligenzaartificialeitalia.net%2F&title=IntelligenzaArtificialeItalia=Blog%2C+Forum%2C+Progetti%2C+e+Servizi+Gratuiti+completamente+dedicati+all%27+Intelligenza+Artificiale.&source=IntelligenzaArtificialeItalia" target="blank" rel="noopener noreferrer">Condividi su Linkedin</a></li>\
 	</ul>', unsafe_allow_html=True)
    except:
-	stato.error("C'è stato un Errore riprova")
+   	stato.error("C'è stato un Errore riprova")
    
 st.text("")
 st.text("")
