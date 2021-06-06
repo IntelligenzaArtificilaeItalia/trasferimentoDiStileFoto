@@ -74,7 +74,7 @@ if (selected_option2 is not None) :
 	img_array2 = np.array(style_image)
 	st.image(img_array2)
 
-if(st.sidebar.checkbox('Impostazioni immagine')):
+if(st.checkbox('Impostazioni immagine')):
 	st.sidebar.text('Utilizza le slide per modificare la \nfoto finale.\nDopo aver cambiato i valori di Default\nimpostati su 1,\npremi il pulsante per ricreare la foto')
 	luminosita = st.sidebar.slider('Seleziona la Luminosità', 0.3, 1.7, 1.0,0.01, format="%.2f")
 	contrasto = st.sidebar.slider('Seleziona il Contrasto', 0.3, 1.7, 1.0,0.01, format="%.2f")
@@ -91,7 +91,7 @@ viewImg= st.image(imgOk)
 st.sidebar.subheader('\n\n')
 
 c= False
-b = st.sidebar.button('Procedi con la Creazione della Nuova Foto')
+b = st.button('Procedi con la Creazione della Nuova Foto')
 if(b):
    stato = st.info("Attendi il caricamento, potrebbero volerci fino a 2 minuti, grazie")
    import tensorflow_hub as hub
