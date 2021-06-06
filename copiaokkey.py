@@ -123,8 +123,8 @@ if(b):
 
 	   (PhotoW, PhotoH) = Image.open(PhotoDef).size
 	   (WaterW, WaterH) = Image.open(RotatedWatermark).size
-           imgOk = PhotoDef
-	   for n in range(PhotoH * 2 / WaterH):
+            imgOk = PhotoDef
+	    for n in range(PhotoH * 2 / WaterH):
 
 		   for i in range(PhotoW * 2 / WaterW + 1):
 
