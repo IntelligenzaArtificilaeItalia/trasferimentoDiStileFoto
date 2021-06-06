@@ -88,7 +88,7 @@ else:
 
 viewImg= st.image(imgOk)
 
-st.sidebar.subheader('\n\n')
+st.subheader('\n\n')
 
 c= False
 b = st.button('Procedi con la Creazione della Nuova Foto')
